@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Basic-Java-Script-Part-1-6</title>
+  </head>
+  <body></body>
+</html>
+
+<script>
+  function draw(n) {
+    let n_square = n ** 2;
+    console.log(n_square);
+    for (let i = 1; i <= n_square; i++) {
+      document.write(i.toString());
+      if (i % n === 0) {
+        document.write("<br>");
+      }
+    }
+  }
+  let n = +prompt();
+  draw(n);
+</script>

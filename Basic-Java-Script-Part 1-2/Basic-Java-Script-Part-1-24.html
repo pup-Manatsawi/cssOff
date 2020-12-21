@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Basic-Java-Script-Part-1-24</title>
+    <script>
+      //   function draw(n) {
+      //     let out ;
+      //     let amountOfStar = 1;
+      //     let positionofStar=n;
+      //     let resetstar = 1;
+      //     for (let i = 1; i <= n * 2 - 1; i++) {
+      //       for (let j = 1; j <= n; j++) {
+      //         out = "_";
+      //         if (j>=positionofStar && j<=positionofStar+amountOfStar) {
+      //           out = "*";
+      //         }
+      //         document.write(out);
+      //       }
+      //       document.write("<br>");
+      //       if (i < n) {
+      //         resetstar++;
+      //         console.log(resetstar + "RE");
+      //       } else {
+      //         resetstar--;
+      //         console.log(resetstar + "REs");
+      //       }
+      //       amountOfStar = resetstar;
+      //     }
+      //   }
+      function draw(n) {
+        let out;
+        let numOut = 1;
+        let amountOfStar = 1;
+        let positionofStar = n;
+        let resetstar = 1;
+        let resetPosition = n;
+        for (let i = 1; i <= n * 2 - 1; i++) {
+          for (let j = 1; j <= n * 2 - 1; j++) {
+            out = "-";
+            if (j >= positionofStar && j < positionofStar + amountOfStar) {
+              out = numOut;
+              numOut++;
+            }
+            document.write(out);
+          }
+          document.write("<br>");
+          if (i < n) {
+            resetstar += 2;
+            resetPosition--;
+          } else {
+            resetstar -= 2;
+            resetPosition++;
+          }
+          positionofStar = resetPosition;
+          amountOfStar = resetstar;
+        }
+      }
+
+      let numIn = +prompt();
+      draw(numIn);
+    </script>
+  </head>
+  <body></body>
+</html>

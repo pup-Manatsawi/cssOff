@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Basic-Java-Script-Part-2-4</title>
+  </head>
+  <body></body>
+</html>
+
+<script>
+  let fibo = [0, 1];
+  let numIn = +prompt();
+  for (i = 1; i < numIn - 1; i++) {
+    fibo.push(fibo[i] + fibo[i - 1]);
+  }
+  alert(fibo);
+  alert(fibo[numIn - 1]);
+</script>

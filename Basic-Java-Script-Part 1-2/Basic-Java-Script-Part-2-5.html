@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Basic-Java-Script-Part-2-5</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  let sum1 = 0;
+  for (let i = 2; i < 421; i += 2) {
+    sum1 += i;
+  }
+  alert(sum1);
+
+  let sum2 = 0;
+  let operators = true;
+  for (let i = 1; i < 18955; i++) {
+    if (operators === true) {
+      sum2 += i;
+      operators = false;
+    } else {
+      sum2 -= i;
+      operators = true;
+    }
+  }
+  alert(sum2);
+</script>

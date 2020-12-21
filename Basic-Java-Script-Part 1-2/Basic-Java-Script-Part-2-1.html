@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Basic-Java-Script-Part-2-1</title>
+  </head>
+
+  <body></body>
+</html>
+
+<script>
+  const gcd = (a, b) => {
+    if (!b) return a;
+    return gcd(b, a % b);
+  };
+  let a = +prompt();
+  let b = +prompt();
+  let gcdNums = gcd(a, b);
+  if (gcdNums === 1) {
+    alert(a + "/" + b);
+  } else {
+    a = a / gcdNums;
+    b = b / gcdNums;
+    alert(a + "/" + b);
+  }
+  // gcd(a, b)===1
+</script>

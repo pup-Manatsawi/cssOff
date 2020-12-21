@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Basic-Java-Script-Part-2-15</title>
+  </head>
+  <body></body>
+</html>
+
+<script>
+  let numIn = prompt();
+  let cha = numIn.split("");
+  alert(cha);
+  if (cha[0] === "-") {
+    cha.splice(0, 1);
+    let chaReverse = cha.reverse();
+    let joincha = chaReverse.join("");
+    alert("-" + joincha);
+  } else {
+    let chaReverse = cha.reverse();
+    let joincha = chaReverse.join("");
+    alert(joincha);
+  }
+</script>

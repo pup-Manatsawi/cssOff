@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Basic-Java-Script-Part-1-15</title>
+    <script>
+      function draw(n) {
+        let star_ = "*";
+        let amountofstar = 1;
+        let resetstar = 1;
+        for (let i = 1; i <= n * 2 - 1; i++) {
+          star_ = "*";
+          for (let j = 1; j <= n; j++) {
+            console.log(amountofstar + "amount");
+            document.write(star_);
+            amountofstar--;
+            if (amountofstar <= 0) {
+              star_ = "-";
+            }
+          }
+          document.write("<br>");
+          if (i < n) {
+            resetstar++;
+            console.log(resetstar + "RE");
+          } else {
+            resetstar--;
+            console.log(resetstar + "REs");
+          }
+          amountofstar = resetstar;
+        }
+      }
+      let numIn = +prompt();
+      draw(numIn);
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Basic-Java-Script-Part-1-14</title>
+    <script>
+      function draw(n) {
+        let star_ = "*";
+        let amountofstar = n;
+        let resetstar = n;
+        for (let i = 1; i <= n ** 2; i++) {
+          if (amountofstar <= 0) {
+            star_ = "-";
+          }
+
+          document.write(star_);
+          amountofstar--;
+          if (i % n === 0) {
+            document.write("<br>");
+            resetstar -= 1;
+            amountofstar = resetstar;
+            star_ = "*";
+          }
+        }
+      }
+      let numIn = +prompt();
+      draw(numIn);
+    </script>
+  </head>
+  <body></body>
+</html>

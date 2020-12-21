@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Basic-Java-Script-Part-1-20</title>
+    <script>
+      function draw(n) {
+        let numOut = 1;
+        let out;
+        let amountof_ = n - 1;
+        let reset_ = n - 1;
+        for (let i = 1; i <= n * 2 - 1; i++) {
+          out = "-";
+          for (let j = 1; j <= n; j++) {
+            if (amountof_ <= 0) {
+              out = numOut;
+              numOut++;
+            }
+            document.write(out);
+            amountof_--;
+          }
+          document.write("<br>");
+          if (i < n) {
+            reset_--;
+            console.log(reset_ + "RE");
+          } else {
+            reset_++;
+            console.log(reset_ + "REs");
+          }
+          amountof_ = reset_;
+        }
+      }
+      let numIn = +prompt();
+      draw(numIn);
+    </script>
+  </head>
+  <body></body>
+</html>

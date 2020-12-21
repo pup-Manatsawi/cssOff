@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Basic-Java-Script-Part-1-3</title>
+  </head>
+  <body></body>
+</html>
+
+<script>
+  function draw(n) {
+    let ans = "";
+    for (let i = 1; i <= n; i++) {
+      ans += i.toString();
+    }
+    for (let i = 0; i < n; i++) {
+      document.write(ans + "<br>");
+    }
+  }
+  let n = +prompt();
+  draw(n);
+</script>

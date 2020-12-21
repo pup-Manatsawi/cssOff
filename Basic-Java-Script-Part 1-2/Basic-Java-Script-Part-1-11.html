@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Basic-Java-Script-Part-1-11</title>
+  </head>
+  <body></body>
+</html>
+
+<script>
+  function draw(n) {
+    let _position = 1;
+    let star_ = "-";
+    for (let i = 1; i <= n ** 2; i++) {
+      console.log(_position);
+      if (_position === i) {
+        star_ = "-";
+      }
+      document.write(star_);
+      star_ = "*";
+      if (i % n === 0) {
+        document.write("<br>");
+        _position += n + 1;
+      }
+    }
+  }
+  let n = +prompt();
+  draw(n);
+</script>

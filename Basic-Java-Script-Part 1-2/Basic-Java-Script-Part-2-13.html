@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Basic-Java-Script-Part-2-13</title>
+  </head>
+  <body></body>
+</html>
+
+<script>
+  let numIn = prompt();
+  let numMin = [];
+  while (numIn !== "stop") {
+    numMin.push(+numIn);
+    numIn = prompt();
+  }
+  numMin.sort((a, b) => a - b);
+  alert(numMin[numMin.length - 1] - numMin[0]);
+</script>

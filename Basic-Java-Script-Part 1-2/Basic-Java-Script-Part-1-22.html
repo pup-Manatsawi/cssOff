@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Basic-Java-Script-Part-1-22</title>
+    <script>
+      //   function draw(n) {
+      //     let star_ ;
+      //     let amountOfStar = 1;
+      //     let positionofStar=n;
+      //     let resetstar = 1;
+      //     for (let i = 1; i <= n * 2 - 1; i++) {
+      //       for (let j = 1; j <= n; j++) {
+      //         star_ = "_";
+      //         if (j>=positionofStar && j<=positionofStar+amountOfStar) {
+      //           star_ = "*";
+      //         }
+      //         document.write(star_);
+      //       }
+      //       document.write("<br>");
+      //       if (i < n) {
+      //         resetstar++;
+      //         console.log(resetstar + "RE");
+      //       } else {
+      //         resetstar--;
+      //         console.log(resetstar + "REs");
+      //       }
+      //       amountOfStar = resetstar;
+      //     }
+      //   }
+      function draw(n) {
+        let star_;
+        let amountOfStar = n * 2 - 1;
+        let positionofStar = 1;
+        let resetstar = 1;
+        for (let i = 1; i <= n; i++) {
+          for (let j = 1; j <= n * 2 - 1; j++) {
+            star_ = "-";
+            if (j >= positionofStar && j < positionofStar + amountOfStar) {
+              star_ = "*";
+            }
+            document.write(star_);
+          }
+          document.write("<br>");
+          if (i < n) {
+            resetstar++;
+          } else {
+            resetstar--;
+          }
+          positionofStar++;
+          amountOfStar -= 2;
+        }
+      }
+
+      let numIn = +prompt();
+      draw(numIn);
+    </script>
+  </head>
+  <body></body>
+</html>
