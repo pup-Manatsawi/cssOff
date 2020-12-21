@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Advance-Java-Script-Part-1-6</title>
+</head>
+
+<body>
+  <script>
+    //
+    const checkPrime = (num) => {
+      // console.log("prime");
+      if (num <= 1) return false;
+      if (num === 2) return true;
+      for (let i = 2; i < num; i++) {
+        if (num % i === 0) return false;
+      }
+
+      return true;
+    };
+
+    const numInput = +prompt("Enter number of input");
+    let sum = 0;
+    let expandSum = [];
+    for (let i = 1; i <= numInput; i++) {
+      if (checkPrime(i)) {
+        sum -= i;
+        expandSum.push(-i);
+      } else {
+        sum += i;
+        expandSum.push(i);
+      }
+
+      // for (let j = 1; j <= i; j++) {
+      //   expandSum.push(i);
+      // }
+    }
+    console.log(sum);
+    console.log(expandSum);
+  </script>
+</body>
+
+</html>

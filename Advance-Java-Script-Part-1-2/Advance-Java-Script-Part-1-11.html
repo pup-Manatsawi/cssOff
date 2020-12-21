@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Advance-Java-Script-Part-1-11</title>
+</head>
+
+<body>
+  <script>
+    function toSorted(nums, bool) {
+      let sortVar = [];
+      const numIteration = nums.length;
+      if (bool) {
+        let minValue = Math.min(...nums);
+        for (let i = 0; i < numIteration; i++) {
+          // push min
+          sortVar.push(nums[nums.indexOf(minValue)]);
+          // update min
+          nums.splice(nums.indexOf(minValue), 1);
+          minValue = Math.min(...nums);
+        }
+      } else {
+        let maxValue = Math.max(...nums);
+        for (let i = 0; i < numIteration; i++) {
+          // push max
+          sortVar.push(nums[nums.indexOf(maxValue)]);
+          // update max
+          nums.splice(nums.indexOf(maxValue), 1);
+          maxValue = Math.max(...nums);
+        }
+      }
+      return sortVar;
+    }
+
+    console.log(toSorted([2, 1, 4, 2, 423, 5, 3, 32], true));
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Advance-Java-Script-Part-1-12</title>
+</head>
+
+<body>
+  <script>
+    // find numbers with multiple by 3 , 5 and less than 1000
+    const multipleNum = (num) => {
+      let multipleList = [];
+      for (let i = 1; i < num; i++) {
+        if (i % 3 === 0 || i % 5 === 0) {
+          multipleList.push(i);
+        }
+      }
+      return multipleList;
+    };
+
+    console.log(multipleNum(16)); //[3, 5, 6, 9, 10, 12, 15]
+    console.log(multipleNum(16).reduce((acc, num) => acc + num, 0)); //60
+    console.log(
+      multipleNum(1000).reduce((acc, num) => {
+        return acc + num;
+      }, 0)
+    ); //233168
+  </script>
+</body>
+
+</html>

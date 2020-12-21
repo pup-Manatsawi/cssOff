@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Advance-Java-Script-Part-2-1</title>
+</head>
+
+<body>
+  <script>
+    // Problem 1
+    const checkCharacter = (string) => {
+      const charUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+      const charLower = "abcdefghijklmnopqrstuvwxyz";
+      let isUpper = false;
+      let isLower = false;
+      for (char of string) {
+        if (charUpper.indexOf(char) !== -1) isUpper = true;
+        if (charLower.indexOf(char) !== -1) isLower = true;
+      }
+      if (isUpper && isLower) return "All charactor are mix";
+      if (isUpper) return "All charactor are capital";
+      if (isLower) return "All charactor are small";
+    };
+    // console.log(checkCharacter("ASDQFsdsdsd"));
+
+    // Problem 2
+    function pow(a, n) {
+      let out = 1;
+      for (i = 0; i < n; i++) {
+        out *= a;
+      }
+      return out;
+    }
+    // console.log(pow(2, 6));
+
+    // Problem 3
+    function thaiTypeof(variable) {
+      const type = {
+        number: "ตัวเลข",
+        string: "ข้อความ",
+        object: "ออปเจ็คต์",
+        boolean: "บูลลี่",
+      };
+      return type[typeof variable];
+    }
+    // console.log(thaiTypeof({ a: 1, b: 2 }));
+
+    // Problem 4
+    function evenArraySum(array) {
+      let sum = 0;
+      for (num of array) {
+        if (num % 2 === 0) sum += num;
+      }
+      return sum;
+    }
+    // console.log(evenArraySum([1, 3, 5, 9]), evenArraySum([5, 8, 6, 7, 1]));
+
+    // Problem 5
+    function changeStringtoThaiDate(date) {
+      const monthList = {
+        1: "เดือนมกราคม",
+        2: "เดือนกุมภาพันธ์",
+        3: "เดือนมีนาคม",
+        4: "เดือนเมษายน",
+        5: "เดือนพฤษภาคม",
+        6: "เดือนมิถุนายน",
+        7: "เดือนกรกฎาคม",
+        8: "เดือนสิงหาคม",
+        9: "เดือนกันยายน",
+        10: "เดือนตุลาคม",
+        11: "เดือนพฤศจิกายน",
+        12: "เดือนธันวาคม",
+      };
+      const [day, month, year] = date.split("-").map((elem) => +elem);
+      if (day > 31 || day < 1 || month > 12 || month < 1) return "Error";
+      if (month === 2 && day > 28) return "Error";
+      if (day > 30 && [4, 6, 9, 11].indexOf(month) !== -1) return "Error";
+      return `วันที่ ${day} ${monthList[month]} พ.ศ. ${year}`;
+    }
+    // console.log(changeStringtoThaiDate("31-11-1996"));
+
+    // Problem 6
+    function isTheSameAnagram(string1, string2) {
+      let charOfstring1 = string1.split("").sort();
+      let charOfstring2 = string2.split("").sort();
+      if (charOfstring1.join("") === charOfstring2.join("")) return true;
+      return false;
+    }
+    // console.log(isTheSameAnagram("trsngi", "string"));
+
+    // Problem 7
+    function gcd(a, b) {
+      if (b % a === 0) return a;
+      return gcd(b % a, a);
+    }
+    function numberOfSquare(height, width) {
+      const sizeSquare = gcd(height, width);
+      return ((height / sizeSquare) * width) / sizeSquare;
+    }
+    // console.log(numberOfSquare(1, 5));
+
+    // Problem 8
+    function toChange(income) {
+      const moneyList = {
+        แบงค์พัน: 1000,
+        แบงค์ห้าร้อย: 500,
+        แบงค์ร้อย: 100,
+        แบงค์ห้าสิบ: 50,
+        แบงค์ยี่สิบ: 20,
+        เหรียญสิบ: 10,
+        เหรียญห้า: 5,
+        เหรียญสองบาท: 2,
+        เหรียญบาท: 1,
+      };
+      let changeList = {
+        แบงค์พัน: 0,
+        แบงค์ห้าร้อย: 0,
+        แบงค์ร้อย: 0,
+        แบงค์ห้าสิบ: 0,
+        แบงค์ยี่สิบ: 0,
+        เหรียญสิบ: 0,
+        เหรียญห้า: 0,
+        เหรียญสองบาท: 0,
+        เหรียญบาท: 0,
+      };
+      while (income !== 0) {
+        for (money in moneyList) {
+          while (income >= moneyList[money]) {
+            changeList[money]++;
+            income -= moneyList[money];
+          }
+        }
+      }
+      let out = [];
+      for (change in changeList) {
+        if (change.startsWith("แบงค์"))
+          out.push(`${change} ${changeList[change]} ใบ`);
+        else out.push(`${change} ${changeList[change]} เหรียญ`);
+      }
+      return out.join(" / ");
+    }
+    // console.log(toChange(788));
+
+    // Problem 9
+    function maxPossibleNumber(number) {
+      let numString = number.toString();
+      let indexDot = numString.indexOf(".");
+      if (indexDot === -1)
+        return +numString.split("").sort().reverse().join("");
+
+      numString = numString.split("").sort().reverse();
+      numString.pop();
+      return (
+        numString.slice(0, indexDot).join("") +
+        "." +
+        numString.slice(indexDot).join("")
+      );
+    }
+    // console.log(maxPossibleNumber(125923.91111117));
+
+    // Problem 10
+    function squareRoot(number) {
+      if (number % Math.sqrt(number) === 0) return Math.sqrt(number);
+      let outsideSqrt = 1;
+      let insideSqrt = 1;
+      let scope = number;
+      for (let i = 2; i <= scope; i++) {
+        let factor = [];
+        while (number % i === 0) {
+          factor.push(i);
+          number = number / i;
+        }
+        if (factor.length % 2 === 0) outsideSqrt *= i ** (factor.length / 2);
+        else {
+          insideSqrt *= i;
+          outsideSqrt *= i ** ((factor.length - 1) / 2);
+        }
+      }
+
+      return outsideSqrt === 1
+        ? " root " + insideSqrt
+        : outsideSqrt + " root " + insideSqrt;
+    }
+    console.log(squareRoot(50));
+
+    // Problem 11
+    function dotProduct(vector1, vector2) {
+      // if (vector1.length !== vector2.length) {
+      // }
+      let out = 0;
+      for (let i = 0; i < Math.max(vector1.length, vector2.length); i++) {
+        if (vector1[i] && vector2[i]) out += vector1[i] * vector2[i];
+      }
+      return out;
+    }
+    console.log(dotProduct([3, 4], [2, 8, 9, 11]));
+
+    // Problem 12
+    function maxPairSum(array) {
+      let arrSorted = array.sort((a, b) => b - a);
+      return arrSorted[0] + arrSorted[1];
+    }
+    // console.log(maxPairSum([2, 5, 3, 9, 19, 3, 7, 58]));
+
+    // Problem 13
+    function minPairSum(array) {
+      let arrSorted = array.sort((a, b) => a - b);
+      return arrSorted[0] + arrSorted[1];
+    }
+    // console.log(minPairSum([2, 5, 3, 9, 19, 3, 7, 58]));
+
+    // Problem 14
+    function numberOfJumpFrog(speed, distance) {
+      return Math.ceil(distance / speed);
+    }
+    // console.log(numberOfJumpFrog(5, 23));
+
+    // Problem 15
+    function calculateInterest(money, years) {
+      for (let i = 0; i < years; i++) {
+        money += money * 0.025;
+      }
+      return money;
+    }
+      // console.log(calculateInterest(100000, 1));
+  </script>
+</body>
+
+</html>

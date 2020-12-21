@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Advance-Java-Script-Part-1-4</title>
+</head>
+
+<body>
+  <script>
+    const checkPrime = (num) => {
+      // console.log("prime");
+      if (num <= 1) return false;
+      if (num === 2) return true;
+
+      for (let i = 2; i < num; i++) {
+        if (num % i === 0) return false;
+      }
+
+      return true;
+    };
+    let inputNum = +prompt("Enter input number to find prime");
+    let primeNum = 0;
+    let count = 0;
+    //   while (count !== inputNum){
+    for (let i = 2; i <= Infinity; i++) {
+      if (checkPrime(i)) {
+        primeNum += i;
+        count += 1;
+        if (count === inputNum) break;
+      }
+    }
+    console.log(primeNum);
+      //   }
+  </script>
+</body>
+
+</html>

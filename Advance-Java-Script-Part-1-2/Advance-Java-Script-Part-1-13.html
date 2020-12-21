@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Advance-Java-Script-Part-1-13</title>
+</head>
+
+<body>
+  <script>
+    function sumNum(num1, num2) {
+      let sum = 0;
+      let arr_num1 = num1.split("");
+      let arr_num2 = num2.split("");
+      for (num of [...arr_num1, ...arr_num2]) {
+        sum += Number(num);
+      }
+      return sum;
+    }
+    let num1 = prompt("Enter first number");
+    let num2 = prompt("Enter second number");
+    console.log(sumNum(num1, num2));
+  </script>
+</body>
+
+</html>

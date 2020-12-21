@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Advance-Java-Script-Part-1-8</title>
+</head>
+
+<body>
+  <script>
+    function findLCM(numList) {
+      let maxNum = Math.max(...numList);
+      let lcm = maxNum
+      while (true) {
+        let foundLCM = true;
+        for (let num of numList) {
+
+          if (lcm % num !== 0) {
+            foundLCM = false
+            lcm += maxNum
+            break
+          }
+        }
+        if (foundLCM) break
+      }
+      return lcm;
+    }
+    console.log(findLCM([5, 3, 25]));
+
+  </script>
+</body>
+
+</html>

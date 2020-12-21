@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Advance-Java-Script-Part-1-7</title>
+</head>
+
+<body>
+  <script>
+    const checkPrime = (num) => {
+      if (num <= 1) return false;
+      if (num === 2) return true;
+      for (let i = 2; i < num; i++) {
+        if (num % i === 0) return false;
+      }
+      return true;
+    };
+    const findPrime = (list) => {
+      let primeNum = [];
+      for (let i = 2; i <= Math.min(...list); i++) {
+        if (checkPrime(i)) primeNum.push(i);
+      }
+      return primeNum;
+    };
+    function findGCD(numList) {
+      const primeNums = findPrime(numList);
+      let gcd = 1;
+      for (primeNum of primeNums) {
+        // want to find gcd
+        let isDivisible = true;
+        while (isDivisible) {
+          let isDivisible = true;
+          for (num of numList) {
+            if (num % primeNum !== 0) isDivisible = false;
+          }
+          if (!isDivisible) break;
+          numList = numList.map((item) => item / primeNum);
+          gcd *= primeNum;
+        }
+      }
+      return gcd
+    }
+    console.log(findGCD([16, 2048, 256, 1024]));
+  </script>
+</body>
+
+</html>
